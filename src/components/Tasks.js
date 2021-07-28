@@ -3,6 +3,7 @@ import Task from './Task'
 
 const Tasks = ({tasks, onDelete, onToggle}) => {
 //destructuring props and passing it
+//if you pass props thenthe synatx will be props.task.id, etc.
     return (
         <>
             {tasks.map((task)=>(
