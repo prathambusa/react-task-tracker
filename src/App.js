@@ -9,6 +9,12 @@ function App() {
 
   const [tasks, setTasks] = useState([])
 
+  useEffect( () => {
+    const fetchTasks = async () => {
+      const res = await fetch('')
+    }
+  })
+
   //Delete Task
   const deleteTask = (id) => {
     setTasks(tasks.filter((task)=>task.id!==id));
