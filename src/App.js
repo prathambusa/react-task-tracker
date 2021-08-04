@@ -1,7 +1,10 @@
+import { useState, useEffect } from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import About from "./components/About";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
-import { useState, useEffect } from 'react';
 
 function App() {
 
@@ -90,16 +93,21 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <Header onClickAdd={()=>setshowAddTask(!showAddTask)} showAddTask={showAddTask}/>
-      {showAddTask && <AddTask onAdd={addTask}/>}
-      {/* && is a shorter way of using ternary operator when there is no else condition */}
-      {tasks.length > 0 ? (
-        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
-        ) : (
-          'No Tasks'
-        )}
-    </div>
+    // <Router>
+      <div className="container">
+        <Header onClickAdd={()=>setshowAddTask(!showAddTask)} showAddTask={showAddTask}/>
+        {showAddTask && <AddTask onAdd={addTask}/>}
+        {/* && is a shorter way of using ternary operator when there is no else condition */}
+        {tasks.length > 0 ? (
+          <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
+          ) : (
+            'No Tasks'
+          )}
+          {/* <Route path='/about' component={About} /> */}
+          <Footer />
+      </div>
+    // </Router>
+    
   );
 }
 
