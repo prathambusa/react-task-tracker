@@ -13,10 +13,10 @@
       "reminder": true
     },
     {
-      "id": 3,
-      "text": "Grocery Shopping",
-      "dateTime": "Feb 5th - 4.30AM",
-      "reminder": false
+      "text": "Take Test",
+      "dateTime": "Monday",
+      "reminder": false,
+      "id": 3
     }
   ]
 }
