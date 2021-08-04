@@ -93,20 +93,26 @@ function App() {
   }
 
   return (
-    // <Router>
+    <Router>
       <div className="container">
         <Header onClickAdd={()=>setshowAddTask(!showAddTask)} showAddTask={showAddTask}/>
-        {showAddTask && <AddTask onAdd={addTask}/>}
-        {/* && is a shorter way of using ternary operator when there is no else condition */}
-        {tasks.length > 0 ? (
-          <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
-          ) : (
-            'No Tasks'
-          )}
-          {/* <Route path='/about' component={About} /> */}
+        
+          <Route path='/' exact render={(props) => (
+            <>
+              {showAddTask && <AddTask onAdd={addTask}/>}
+              {/* && is a shorter way of using ternary operator when there is no else condition */}
+              {tasks.length > 0 ? (
+                <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
+                ) : (
+                  'No Tasks'
+                )}
+            </>
+          ) } />
+
+          <Route path='/about' component={About} />
           <Footer />
       </div>
-    // </Router>
+    </Router>
     
   );
 }
